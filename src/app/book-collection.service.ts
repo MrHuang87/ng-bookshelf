@@ -1,33 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable'
 import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { mockBookResults } from './model/mock-books';
+import { Book } from './model/books';
 
-export class Book {
-  constructor(
-    public title: string,
-    public authors: string[],
-    public id: string,
-    public publishedDate: string,
-    public isCollected = false
-  ) { }
-}
-
-export let books = [
-  new Book('Title A', ['Author A', 'Author B'], 'id-3', '2001', true),
-  new Book('Title B', ['Author B'], 'id-4', '2008', true),
-]
 
 @Injectable()
 export class BookCollectionService {
   book$ = new ReplaySubject<Book[]>(1)
 
   constructor() {
-    this.book$.next(books)
+    this.book$.next(mockBookResults.map(b => ({ ...b, isCollected: true })))
   }
 
   private sortAlphabetical(a: Book, b: Book): number {
-    const _a = a.title.toLowerCase()
-    const _b = b.title.toLowerCase()
+    const _a = a.volumeInfo.title.toLowerCase()
+    const _b = b.volumeInfo.title.toLowerCase()
     if (_a < _b) return -1;
     if (_a > _b) return 1;
     return 0;

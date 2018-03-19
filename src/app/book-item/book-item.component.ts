@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Book } from '../book-collection.service';
+import { Book } from '../model/books'
 
 @Component({
   selector: 'mrk-book-item',
@@ -25,12 +25,34 @@ export class BookItemComponent implements OnInit {
     return this.book.isCollected
   }
 
+  get description() {
+    const { description = '' } = this.book.volumeInfo
+    if (!description)
+      return ''
+    else if (description.length > 300)
+      return description.substr(0, 300) + '..'
+    else
+      return description
+  }
+
+  get price(): string {
+    const { listPrice } = this.book.saleInfo;
+    if (!listPrice)
+      return ''
+    else if (listPrice.currencyCode)
+      return 'Price: ' + listPrice.amount + ' ' + listPrice.currencyCode
+    else
+      return 'Price: ' + listPrice.amount
+  }
+
   get title() {
-    return this.book.title
+    return this.book.volumeInfo.title
   }
 
   get authors() {
-    return this.book.authors.join(', ')
+    if (this.book.volumeInfo.authors)
+      return this.book.volumeInfo.authors.join(', ')
+    else return ''
   }
 
 }

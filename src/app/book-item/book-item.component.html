@@ -1,6 +1,10 @@
 <mat-card>
   <mat-card-title>{{title}}</mat-card-title>
-  <mat-card-subtitle>{{authors}}</mat-card-subtitle>
+  <mat-card-content>{{authors}}</mat-card-content>
+  <mat-card-content>
+    {{description}}
+  </mat-card-content>
+  <p> {{price}}</p>
   <mat-card-actions>
     <button *ngIf="!isCollected" mat-raised-button color="primary" (click)="addBook()">Add</button>
     <button *ngIf="isCollected" mat-raised-button color="primary" (click)="removeBook()">Remove</button>

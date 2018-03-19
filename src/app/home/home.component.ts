@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GoogleBookApiService } from '../google-books-api.service';
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';
-import { Book, BookCollectionService } from '../book-collection.service';
+import { BookCollectionService } from '../book-collection.service';
+import { Book } from '../model/books'
 
 
 @Component({
