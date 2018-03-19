@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Book } from '../home/home.component';
 
-type Book = {
-  title: string
-  authors: string[]
-}
 
 @Component({
   selector: 'mrk-book-item',
