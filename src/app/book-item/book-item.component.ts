@@ -35,6 +35,12 @@ export class BookItemComponent implements OnInit {
       return description
   }
 
+  get thumb() {
+    const { volumeInfo } = this.book;
+    const { imageLinks } = volumeInfo
+    return imageLinks ? imageLinks.smallThumbnail : ''
+  }
+
   get price(): string {
     const { listPrice } = this.book.saleInfo;
     if (!listPrice)
