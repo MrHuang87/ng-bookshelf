@@ -20,7 +20,15 @@ export let mockBookResults = [
 @Injectable()
 export class GoogleBookApiService {
 
-  searchBook(term: string): Observable<Book[]> {
+  setupSearch(term$: Observable<string>): Observable<Book[]> {
+    return term$
+      .debounceTime(500)
+      .distinctUntilChanged()
+      .switchMap(term => this._searchBooks(term))
+      .share()
+  }
+
+  _searchBooks(term: string): Observable<Book[]> {
     let output = mockBookResults.map((book, ind) => ({ ...book, title: `${term}-${ind}` }))
     return Observable
       .of(output)

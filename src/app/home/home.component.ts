@@ -17,27 +17,17 @@ export class HomeComponent implements OnInit {
 
   books: Book[] = books
   isSearching: boolean
-  searchResult$: Observable<Book[]>
   term$ = new Subject<string>()
+  searchResult$: Observable<Book[]> = this.gBooksApi.setupSearch(this.term$)
 
   constructor(
     public gBooksApi: GoogleBookApiService
   ) { }
 
-  ngOnInit() {
-    this.setupSearchInput()
-  }
+  ngOnInit() { }
 
   onClearSearch() {
     this.isSearching = false
-  }
-
-  setupSearchInput() {
-    this.searchResult$ = this.term$
-      .debounceTime(500)
-      .distinctUntilChanged()
-      .switchMap(term => this.gBooksApi.searchBook(term))
-      .share()
   }
 
   onSearchTerm(term: string) {
