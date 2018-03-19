@@ -10,17 +10,17 @@ export class BookSearchComponent implements OnInit {
   @Output() onSearchTerm = new EventEmitter<string>()
   @Output() onClear = new EventEmitter<true>()
 
-  value = ''
+  searchTerm = ''
 
   ngOnInit() { }
 
   clearInput() {
-    this.value = ''
+    this.searchTerm = ''
     this.onClear.emit(true)
   }
 
   get isSearchEmpty(): boolean {
-    return this.value === ''
+    return this.searchTerm === ''
   }
 
   onInput(term) {
