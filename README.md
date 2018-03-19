@@ -1,6 +1,13 @@
 # BookCollection
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+
+
+## Todo
+- When no books in collection should display message "No books in your collection"
+- When no search results should display message "No Books Found"
+- Sort Options should be a dropdown menu
+- Convert into NgRx
+- Restyle SearchBox
 
 ## Development server
 
