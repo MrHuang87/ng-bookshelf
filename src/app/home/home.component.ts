@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export class Book {
-  constructor(
-    public title: string,
-    public authors: string[],
-    public id: string,
-    public publishedDate: string,
-  ) { }
-}
+import { GoogleBookApiService, Book } from '../google-books-api.service';
 
 export let books = [
   new Book('Title A', ['Author A', 'Author B'], 'id-3', '2001'),
@@ -23,12 +15,16 @@ export class HomeComponent implements OnInit {
 
   books: Book[] = books
 
-  constructor() { }
+  constructor(
+    public gBooksApi: GoogleBookApiService
+  ) { }
 
   ngOnInit() { }
 
   onClearSearch() { console.log('cleared') }
-  
-  onSearchTerm(term: string) { console.log(term) }
+
+  onSearchTerm(term: string) {
+    this.gBooksApi.searchBook(term).subscribe(books => console.log({ books }))
+  }
 
 }

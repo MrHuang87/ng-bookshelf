@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Book } from '../home/home.component';
-
+import { Book } from '../google-books-api.service';
 
 @Component({
   selector: 'mrk-book-item',

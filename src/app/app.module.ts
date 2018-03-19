@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { BookItemComponent } from './book-item/book-item.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { GoogleBookApiService } from './google-books-api.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { BookSearchComponent } from './book-search/book-search.component';
     MatInputModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GoogleBookApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
