@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/observable/of'
-import 'rxjs/add/operator/do'
-import 'rxjs/add/operator/delay'
 
 export class Book {
   constructor(

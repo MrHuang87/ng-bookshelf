@@ -10,7 +10,7 @@
 <!-- Book Search Results -->
 <div *ngIf="isSearching">
   <div *ngIf="!(searchResult$|async)">
-    Loading results...
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
   </div>
   <div *ngIf="(searchResult$|async) as bookResults">
     <h1>Book Results</h1>
