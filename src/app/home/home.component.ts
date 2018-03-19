@@ -12,7 +12,7 @@ import { Book, BookCollectionService } from '../book-collection.service';
 })
 export class HomeComponent implements OnInit {
 
-  books: Observable<Book[]> = this.bookManager.bookCollection$
+  books: Observable<Book[]> = this.bookManager.book$
   isSearching: boolean
   term$ = new Subject<string>()
   searchResult$: Observable<Book[]> = this.gBooksApi.setupSearch(this.term$)
