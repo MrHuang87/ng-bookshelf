@@ -25,6 +25,23 @@ export class BookCollectionService {
     this.book$.next(books)
   }
 
+  private sortAlphabetical(a: Book, b: Book): number {
+    const _a = a.title.toLowerCase()
+    const _b = b.title.toLowerCase()
+    if (_a < _b) return -1;
+    if (_a > _b) return 1;
+    return 0;
+  }
+
+  sortBooksByTitle() {
+    this.book$
+      .take(1)
+      .map(s => s.sort((a, b) => this.sortAlphabetical(a, b)))
+      .do(books => this.book$.next(books))
+      .subscribe()
+  }
+
+
   addBook(book: Book) {
     book.isCollected = true
     this.book$

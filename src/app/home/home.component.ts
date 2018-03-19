@@ -33,6 +33,10 @@ export class HomeComponent implements OnInit {
     this.term$.next(term)
   }
 
+  onSortByTitle() {
+    this.bookManager.sortBooksByTitle()
+  }
+
   onAddBook(book: Book) {
     this.bookManager.addBook(book)
   }

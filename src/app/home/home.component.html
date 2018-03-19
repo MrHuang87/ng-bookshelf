@@ -5,7 +5,9 @@
 </mat-toolbar>
 
 <!-- Books Search Box -->
+<br>
 <mrk-book-search (onClear)="onClearSearch()" (onSearchTerm)="onSearchTerm($event)"></mrk-book-search>
+<button mat-raised-button color="secondary" (click)="onSortByTitle()">Sort Alphabetically</button>
 
 <!-- Book Search Results -->
 <div *ngIf="isSearching">
@@ -13,7 +15,7 @@
     <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
   </div>
   <div *ngIf="(searchResult$|async) as bookResults">
-    <mrk-book-list title="Search Results"  (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
+    <mrk-book-list title="Search Results" (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
   </div>
 </div>
 
