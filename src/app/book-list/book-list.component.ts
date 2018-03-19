@@ -7,6 +7,7 @@ import { Book } from '../book-collection.service';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
+  @Input() title: string
   @Input() books: Book[]
   @Output() onAddBook = new EventEmitter<Book>()
   @Output() onRemoveBook = new EventEmitter<Book>()

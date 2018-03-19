@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Book Collection</span>
+    <span>Book Shelf</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -13,12 +13,11 @@
     <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
   </div>
   <div *ngIf="(searchResult$|async) as bookResults">
-    <h1>Book Results</h1>
-    <mrk-book-list (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
+    <mrk-book-list title="Search Results"  (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
   </div>
 </div>
 
 <!-- My Book Collection -->
 <div *ngIf="!isSearching">
-  <mrk-book-list (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="books|async"></mrk-book-list>
+  <mrk-book-list title="Your Book Collection" (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="books|async"></mrk-book-list>
 </div>
