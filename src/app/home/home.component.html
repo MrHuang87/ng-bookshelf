@@ -4,6 +4,21 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<!-- Books Search Box -->
 <mrk-book-search (onClear)="onClearSearch()" (onSearchTerm)="onSearchTerm($event)"></mrk-book-search>
 
-<mrk-book-list [books]="books"></mrk-book-list>
+<!-- Book Search Results -->
+<div *ngIf="isSearching">
+  <div *ngIf="!(searchResult$|async)">
+    Loading results...
+  </div>
+  <div *ngIf="(searchResult$|async) as bookResults">
+    <h1>Book Results</h1>
+    <mrk-book-list [books]="bookResults"></mrk-book-list>
+  </div>
+</div>
+
+<!-- My Book Collection -->
+<div *ngIf="!isSearching">
+  <mrk-book-list [books]="books"></mrk-book-list>
+</div>
