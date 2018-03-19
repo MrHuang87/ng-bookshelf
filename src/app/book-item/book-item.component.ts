@@ -8,6 +8,18 @@ import { Book } from '../book-collection.service';
 })
 export class BookItemComponent implements OnInit {
   @Input('book') book: Book
+  @Output() onAddBook = new EventEmitter<Book>()
+  @Output() onRemoveBook = new EventEmitter<Book>()
+  
+  ngOnInit() { }
+
+  addBook() {
+    this.onAddBook.emit(this.book)
+  }
+
+  removeBook() {
+    this.onRemoveBook.emit(this.book)
+  }
 
   get title() {
     return this.book.title
@@ -16,7 +28,5 @@ export class BookItemComponent implements OnInit {
   get authors() {
     return this.book.authors.join(', ')
   }
-
-  ngOnInit() { }
 
 }

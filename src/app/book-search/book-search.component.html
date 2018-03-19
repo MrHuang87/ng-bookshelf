@@ -1,6 +1,6 @@
 <mat-form-field>
   <input matInput type="text" placeholder="Find a Book" [(ngModel)]="searchTerm" (input)="onInput($event.target.value)" />
-  <div mat-button *ngIf="!isSearchEmpty" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
+  <button mat-button *ngIf="!isSearchEmpty" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
     <mat-icon>close</mat-icon>
-  </div>
+  </button>
 </mat-form-field>

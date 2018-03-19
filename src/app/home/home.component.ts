@@ -33,4 +33,12 @@ export class HomeComponent implements OnInit {
     this.term$.next(term)
   }
 
+  onAddBook(book: Book) {
+    this.bookManager.addBook(book)
+  }
+
+  onRemoveBook(book: Book) {
+    this.bookManager.removeBook(book)
+  }
+
 }

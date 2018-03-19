@@ -14,11 +14,11 @@
   </div>
   <div *ngIf="(searchResult$|async) as bookResults">
     <h1>Book Results</h1>
-    <mrk-book-list [books]="bookResults"></mrk-book-list>
+    <mrk-book-list (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
   </div>
 </div>
 
 <!-- My Book Collection -->
 <div *ngIf="!isSearching">
-  <mrk-book-list [books]="books|async"></mrk-book-list>
+  <mrk-book-list (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="books|async"></mrk-book-list>
 </div>

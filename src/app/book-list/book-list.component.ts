@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../book-collection.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { Book } from '../book-collection.service';
 })
 export class BookListComponent implements OnInit {
   @Input() books: Book[]
+  @Output() onAddBook = new EventEmitter<Book>()
+  @Output() onRemoveBook = new EventEmitter<Book>()
 
   constructor() { }
 
