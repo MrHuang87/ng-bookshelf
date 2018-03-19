@@ -4,22 +4,24 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<!-- Books Search Box -->
-<br>
-<mrk-book-search (onClear)="onClearSearch()" (onSearchTerm)="onSearchTerm($event)"></mrk-book-search>
-<button mat-raised-button color="secondary" (click)="onSortByTitle()">Sort Alphabetically</button>
+<div class="container">
+  <!-- Books Search Box -->
+  <br>
+  <mrk-book-search (onClear)="onClearSearch()" (onSearchTerm)="onSearchTerm($event)"></mrk-book-search>
+  <button mat-raised-button color="secondary" (click)="onSortByTitle()">Sort Alphabetically</button>
 
-<!-- Book Search Results -->
-<div *ngIf="isSearching">
-  <div *ngIf="!(searchResult$|async)">
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <!-- Book Search Results -->
+  <div *ngIf="isSearching">
+    <div *ngIf="!(searchResult$|async)">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+    <div *ngIf="(searchResult$|async) as bookResults">
+      <mrk-book-list title="Search Results" (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
+    </div>
   </div>
-  <div *ngIf="(searchResult$|async) as bookResults">
-    <mrk-book-list title="Search Results" (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="bookResults"></mrk-book-list>
-  </div>
-</div>
 
-<!-- My Book Collection -->
-<div *ngIf="!isSearching">
-  <mrk-book-list title="Your Book Collection" (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="books|async"></mrk-book-list>
+  <!-- My Book Collection -->
+  <div *ngIf="!isSearching">
+    <mrk-book-list title="Your Book Collection" (onAddBook)="onAddBook($event)" (onRemoveBook)="onRemoveBook($event)" [books]="books|async"></mrk-book-list>
+  </div>
 </div>
