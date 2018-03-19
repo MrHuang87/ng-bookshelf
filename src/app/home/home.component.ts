@@ -21,10 +21,14 @@ export let books = [
 })
 export class HomeComponent implements OnInit {
 
+  books: Book[] = books
+
   constructor() { }
 
   ngOnInit() { }
 
-  books = books
+  onClearSearch() { console.log('cleared') }
+  
+  onSearchTerm(term: string) { console.log(term) }
 
 }

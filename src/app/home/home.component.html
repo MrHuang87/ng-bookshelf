@@ -4,4 +4,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<mrk-book-search (onClear)="onClearSearch()" (onSearchTerm)="onSearchTerm($event)"></mrk-book-search>
+
 <mrk-book-list [books]="books"></mrk-book-list>
