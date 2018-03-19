@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,6 +23,7 @@ import { BookListComponent } from './book-list/book-list.component';
     BrowserModule,
     MatCardModule,
     MatListModule,
+    MatToolbarModule,
     AppRoutingModule
   ],
   providers: [],
