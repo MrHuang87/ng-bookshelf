@@ -23,7 +23,6 @@ export class BookCollectionService {
 
   constructor() {
     this.book$.next(books)
-    this.emulateAddingBook_DEV()
   }
 
   addBook(book: Book) {
@@ -34,11 +33,12 @@ export class BookCollectionService {
       .subscribe()
   }
 
-  emulateAddingBook_DEV() {
-    setTimeout(() => {
-      let book = new Book('Title C', ['Author C'], 'id-5', '2008')
-      this.addBook(book)
-    }, 4000)
+  removeBook(bookToRemove: Book) {
+    this.book$
+      .take(1)
+      .map(books => books.filter(b => b !== bookToRemove))
+      .do(books => this.book$.next(books))
+      .subscribe()
   }
 
 }
