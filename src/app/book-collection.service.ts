@@ -13,8 +13,8 @@ export class Book {
 }
 
 export let books = [
-  new Book('Title A', ['Author A', 'Author B'], 'id-3', '2001'),
-  new Book('Title B', ['Author B'], 'id-4', '2008'),
+  new Book('Title A', ['Author A', 'Author B'], 'id-3', '2001', true),
+  new Book('Title B', ['Author B'], 'id-4', '2008', true),
 ]
 
 @Injectable()
@@ -26,6 +26,7 @@ export class BookCollectionService {
   }
 
   addBook(book: Book) {
+    book.isCollected = true
     this.book$
       .take(1)
       .map(books => [...books, book])
@@ -34,6 +35,7 @@ export class BookCollectionService {
   }
 
   removeBook(bookToRemove: Book) {
+    bookToRemove.isCollected = false
     this.book$
       .take(1)
       .map(books => books.filter(b => b !== bookToRemove))

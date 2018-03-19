@@ -10,7 +10,7 @@ export class BookItemComponent implements OnInit {
   @Input('book') book: Book
   @Output() onAddBook = new EventEmitter<Book>()
   @Output() onRemoveBook = new EventEmitter<Book>()
-  
+
   ngOnInit() { }
 
   addBook() {
@@ -19,6 +19,10 @@ export class BookItemComponent implements OnInit {
 
   removeBook() {
     this.onRemoveBook.emit(this.book)
+  }
+
+  get isCollected() {
+    return this.book.isCollected
   }
 
   get title() {
