@@ -10,7 +10,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { AppRoutingModule } from './app-routing.module';
 // RxJs
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/delay'
@@ -22,13 +21,14 @@ import 'rxjs/add/operator/share'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/distinctUntilChanged'
 // Project Files
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { BookItemComponent } from './book-item/book-item.component';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookSearchComponent } from './book-search/book-search.component';
-import { GoogleBookApiService } from './google-books-api.service';
-import { BookCollectionService } from './book-collection.service';
+import { HomeComponent } from './containers/home/home.component';
+import { BookItemComponent } from './components/book-item/book-item.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { BookSearchComponent } from './components/book-search/book-search.component';
+import { GoogleBookApiService } from './services/google-books-api.service';
+import { BookCollectionService } from './services/book-collection.service';
 
 @NgModule({
   declarations: [

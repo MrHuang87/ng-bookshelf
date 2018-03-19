@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { Book } from './model/books';
-import { HttpClient } from '@angular/common/http';
-import { mockBookResults } from './model/mock-books';
+import { Book } from '../model/books';
+import { mockBookResults } from '../model/mock-books';
 
 
 @Injectable()
