@@ -1,6 +1,6 @@
 # BookCollection
 
-
+I will be updating this App to use NgRx later **today March 19th**. Implementation of NgRx will use @NgRx/Effects and @NgRx/Entity.  
 
 ## Todo
 - When no books in collection should display message "No books in your collection"
