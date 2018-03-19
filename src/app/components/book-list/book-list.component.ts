@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Book } from '../../model/books';
+import { Book } from '../../services/book/book';
 
 @Component({
   selector: 'mrk-book-list',

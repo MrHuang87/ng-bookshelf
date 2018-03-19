@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';
 import { GoogleBookApiService } from '../../services/google-books-api.service';
 import { BookCollectionService } from '../../services/book-collection.service';
-import { Book } from '../../model/books';
+import { Book } from '../../services/book/book';
 
 
 @Component({

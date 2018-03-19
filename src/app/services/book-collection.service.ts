@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { mockBookResults } from '../model/mock-books';
-import { Book } from '../model/books';
-
+import { mockBookResults } from './book/mock-books';
+import { Book } from './book/book';
 
 @Injectable()
 export class BookCollectionService {

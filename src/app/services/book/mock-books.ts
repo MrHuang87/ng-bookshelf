@@ -1,4 +1,4 @@
-import { Book } from './books'
+import { Book } from './book'
 export const mockBookResults: Book[] = [
   {
     "kind": "books#volume",
