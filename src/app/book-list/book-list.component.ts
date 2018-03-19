@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Book } from '../google-books-api.service';
+import { Book } from '../book-collection.service';
 
 @Component({
   selector: 'mrk-book-list',

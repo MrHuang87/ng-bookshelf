@@ -20,5 +20,5 @@
 
 <!-- My Book Collection -->
 <div *ngIf="!isSearching">
-  <mrk-book-list [books]="books"></mrk-book-list>
+  <mrk-book-list [books]="books|async"></mrk-book-list>
 </div>

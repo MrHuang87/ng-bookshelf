@@ -1,16 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-
-export class Book {
-  constructor(
-    public title: string,
-    public authors: string[],
-    public id: string,
-    public publishedDate: string,
-    public isCollected = false
-  ) { }
-}
+import { Book } from './book-collection.service';
 
 export let mockBookResults = [
   new Book('Search Result A', ['author c'], 'id-3', '2001'),
