@@ -11,15 +11,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 // RxJs
-import 'rxjs/add/observable/of'
-import 'rxjs/add/operator/delay'
-import 'rxjs/add/operator/debounceTime'
-import 'rxjs/add/operator/do'
-import 'rxjs/add/operator/take'
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/share'
-import 'rxjs/add/operator/switchMap'
-import 'rxjs/add/operator/distinctUntilChanged'
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/distinctUntilChanged';
 // Project Files
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
