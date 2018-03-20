@@ -15,22 +15,22 @@ export class GoogleBookApiService {
       .debounceTime(500)
       .distinctUntilChanged()
       .switchMap(term => this.searchBooks(term))
-      .share()
+      .share();
   }
 
   mockSearchBooks(term: string): Observable<Book[]> {
-    let output = mockBookResults.map((book, ind) => ({ ...book, isCollected: false }))
+    const output = mockBookResults.map((book, ind) => ({ ...book, isCollected: false }));
     return Observable
       .of(output)
       .do(books => console.log({ books }))
-      .delay(1000)
+      .delay(1000);
   }
 
   searchBooks(searchTerm: string): Observable<Book[]> {
     const BOOK_URL = 'https://www.googleapis.com/books/v1/volumes';
     return this.http
       .get<{ items: Book[] }>(BOOK_URL + `?q=${searchTerm}`)
-      .map(books => books.items || [])
+      .map(books => books.items || []);
   }
 
 }
