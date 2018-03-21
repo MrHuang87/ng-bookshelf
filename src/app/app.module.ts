@@ -30,6 +30,9 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { BookSearchComponent } from './components/book-search/book-search.component';
 import { GoogleBookApiService } from './services/google-books-api.service';
 import { BookCollectionService } from './services/book-collection.service';
+// NgRx
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { BookCollectionService } from './services/book-collection.service';
     BookSearchComponent
   ],
   imports: [
+    StoreModule.forRoot(reducers),
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
