@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { Store } from '@ngrx/store';
+// Project Files
 import { GoogleBookApiService } from '../../services/google-books-api.service';
 import { BookCollectionService, SBooks } from '../../services/book-collection.service';
 import { Book } from '../../services/book/book';
+import * as actions from '../../actions/book.actions';
+import * as fromBook from '../../reducers/books.reducer';
 
 @Component({
   selector: 'mrk-home',
@@ -12,7 +16,7 @@ import { Book } from '../../services/book/book';
 })
 export class HomeComponent implements OnInit {
 
-  myCollection$: Observable<Book[]> = this.bookManager.book$;
+  myCollection$: Observable<Book[]> = this.store.select(fromBook.selectAll);
   isSearching: boolean;
   term$ = new Subject<string>();
   searchResult$: Observable<Book[]> = this.gBooksApi
@@ -25,7 +29,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public gBooksApi: GoogleBookApiService,
-    public bookManager: BookCollectionService
+    public bookManager: BookCollectionService,
+    private store: Store<fromBook.State>
   ) { }
 
   ngOnInit() { }
@@ -44,11 +49,13 @@ export class HomeComponent implements OnInit {
   }
 
   onAddBook(book: Book) {
-    this.bookManager.addBook(book);
+    // this.bookManager.addBook(book);
+    this.store.dispatch(new actions.Update(book.id, { isCollected: true }));
   }
 
   onRemoveBook(book: Book) {
-    this.bookManager.removeBook(book);
+    // this.bookManager.removeBook(book);
+    this.store.dispatch(new actions.Update(book.id, { isCollected: false }));
   }
 
 }

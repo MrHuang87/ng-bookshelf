@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { Store } from '@ngrx/store';
+// Project Files
 import { mockBookResults } from './book/mock-books';
 import { Book } from './book/book';
+import * as actions from '../actions/book.actions';
+import * as fromBook from '../reducers/books.reducer';
 
 type AtoAFn<T> = (a: T) => T;
 type GetAReturnA = (items: Book[]) => Book[];
@@ -105,9 +109,16 @@ export class SBooks {
 export class BookCollectionService {
   book$ = new ReplaySubject<Book[]>(1);
 
-  constructor() {
-    const defaultBooks: Book[] = SBooks.setAllBooksToIsCollected(mockBookResults);
-    this.book$.next(defaultBooks);
+  constructor(
+    private store: Store<fromBook.State>
+  ) {
+    this.loadDefaultBooks();
+  }
+
+  loadDefaultBooks() {
+    // const defaultBooks: Book[] = SBooks.setAllBooksToIsCollected(mockBookResults);
+    // this.book$.next(defaultBooks);
+    this.store.dispatch(new actions.Load(mockBookResults));
   }
 
   updateBooks(callback: (books: Book[]) => Book[]) {
